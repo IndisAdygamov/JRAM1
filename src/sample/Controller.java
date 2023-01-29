@@ -4,10 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.*;
 
 public class Controller {
@@ -32,9 +31,7 @@ public class Controller {
     @FXML
     private MenuItem menuHelpAbout;
     @FXML
-    private VBox vboxMain;
-    Stage stage;
-
+    private AnchorPane anchorPaneMain;
     @FXML
     private Label alphabet;
     @FXML
@@ -46,9 +43,11 @@ public class Controller {
     @FXML
     private Label status;
     @FXML
+    private TextArea keyText;
+    @FXML
     private ProgressBar progress;
     private String leftString;
-    private String rightString;
+    private Stage stage;
 
     public Controller() {
     }
@@ -60,23 +59,35 @@ public class Controller {
         for(Character ch : TextEngine.getAlphabet()) {
             alphabet = alphabet +" " + ch.toString();
         }
-
         alphabetText.setText(alphabet);
     }
 
     @FXML
     private void actionFileExit() {
-        System.out.println("========== System log: Menu->File->Exit ==========");
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit");
-        alert.setHeaderText("You will exit the program.");
-        alert.setContentText("Do you want to save before exiting?: ");
+        System.out.println("========== System log: Menu->File->Exit =========="+ rightText.getText()+"1");
 
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            System.out.println("========== System log: OK ==========");
-            stage = (Stage) vboxMain.getScene().getWindow();
+        if(!rightText.getText().equals("")) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Exit");
+            alert.setHeaderText("You will exit the program.");
+            alert.setContentText("Do you want to save before exiting?: ");
+            ButtonType button = alert.showAndWait().get();
+            if (button == ButtonType.OK) {
+                System.out.println("========== System log: OK ==========");
+                actionFileSaveAs();
+                System.out.println("You successfully exiting");
+                System.out.println("Выход через File->Exit успешен");
+                stage = (Stage) anchorPaneMain.getScene().getWindow();
+                stage.close();
+            }
+            else if(button == ButtonType.CANCEL) {
+                System.out.println("========== System log: Cancel ==========");
+            }
+        }
+        else {
             System.out.println("You successfully exiting");
             System.out.println("Выход через File->Exit успешен");
+            stage = (Stage) anchorPaneMain.getScene().getWindow();
             stage.close();
         }
     }
@@ -135,7 +146,7 @@ public class Controller {
         try(FileWriter fileWriter = new FileWriter(file)) {
             String string = rightText.getText();
             fileWriter.write(string.toCharArray());
-            System.out.println("Save file as " + file + " done.");
+            System.out.println("========== System log: Save file as " + file + " done. ==========");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -152,35 +163,70 @@ public class Controller {
         System.out.println("========== System log: Menu->File->Close ==========");
         leftText.setText("");
         rightText.setText("");
+        keyText.setText("");
         showStatus("Closed");
     }
 
     @FXML
     private void actionEditEncrypt() {
         System.out.println("========== System log: Menu->Edit->Encrypt ==========");
-        rightString = TextEngine.encodeString(leftString.toString(), 1);
-        System.out.println(rightString);
-        rightText.setText(rightString);
-        showStatus("Encrypted");
+        boolean validKey = false;
+        int number = 0;
+        String key = keyText.getText();
+        if(!key.equals("")) {
+            try{
+                number = Integer.parseInt(key);
+                validKey = true;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("========== System log: Encrypt failed, key is not valid ==========");
+            }
+            if(validKey) {
+                String rightString = TextEngine.encodeString(leftString, Integer.parseInt(key));
+                System.out.println(rightString);
+                rightText.setText(rightString);
+                showStatus("Encrypted");
+            }
+        }
+        else {
+            showStatus("Not Encrypted, key is not valid");
+        }
     }
 
     @FXML
     private void actionEditDecrypt() {
         System.out.println("========== System log: Menu->Edit->Decrypt ==========");
-        String rightString = TextEngine.decodeString(leftString.toString(), 1);
-        System.out.println(rightString);
-        rightText.setText(rightString);
-        showStatus("Decrypted");
+        boolean validKey = false;
+        String key = keyText.getText();
+        int number = 0;
+        if(!key.equals(""))  {
+            try{
+                number = Integer.parseInt(key);
+                validKey = true;
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("========== System log: Decrypt failed, key is not valid ==========");
+            }
+            if(validKey) {
+                String rightString = TextEngine.decodeString(leftString, number);
+                System.out.println(rightString);
+                rightText.setText(rightString);
+                showStatus("Decrypted");
+            }
+        }
+        else {
+            showStatus("Not Decrypted, key is not valid");
+        }
     }
 
     @FXML
     private void actionEditDecryptAuto() {
-        System.out.println("========== System log: Menu->Edit->Decrypt Auto ==========");
+        System.out.println("========== System log: Menu->Edit->DecryptAuto ==========");
     }
 
     @FXML
     private void actionEditDecryptManually() {
-        System.out.println("========== System log: Menu->Edit->Decrypt Manually ==========");
+        System.out.println("========== System log: Menu->Edit->DecryptManually ==========");
     }
 
     @FXML

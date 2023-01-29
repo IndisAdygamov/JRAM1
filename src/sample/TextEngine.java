@@ -1,4 +1,5 @@
 package sample;
+import sample.Controller.*;
 
 public class TextEngine {
     private static Character[] alphabet = {
@@ -41,7 +42,6 @@ public class TextEngine {
 
     private static Character controlWithUpperCharacter(char symbol, int shift) {
         boolean upperSymbol = false;
-        System.out.println("Char before: " + symbol);
         if(Character.isLetter(symbol)) {
             if(Character.isUpperCase(symbol)) {
                 symbol = Character.toUpperCase(returnCharacterWithShift(Character.toLowerCase(symbol), shift));
@@ -53,7 +53,6 @@ public class TextEngine {
         else {
             symbol = returnCharacterWithShift(symbol, shift);
         }
-        System.out.println("Char after: "+symbol);
         return symbol;
     }
     private static Character returnCharacterWithShift(char symbol, int shift) {
@@ -67,7 +66,6 @@ public class TextEngine {
                 }
             }
         }
-
         return symbol;
     }
 }
