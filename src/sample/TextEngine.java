@@ -1,8 +1,7 @@
 package sample;
-import sample.Controller.*;
 
 public class TextEngine {
-    private static Character[] alphabet = {
+    private static final Character[] alphabet = {
                                             //'А','Б','В','Г','Д','Е','Ё','Ж','З','И',
                                             //'Й','К','Л','М','Н','О','П','Р','С','Т',
                                             //'У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь',
@@ -18,7 +17,7 @@ public class TextEngine {
     }
 
     public static String encodeString(String sourceString, int key) {
-        System.out.println("========== System log: Key = " + key + ", length of alphabet = " + alphabet.length);
+        System.out.println("========== System log: Key = " + key + ", length of alphabet = " + alphabet.length + "==========");
         if(Math.abs(key) > alphabet.length) {
             key = key%alphabet.length;
         }
@@ -27,7 +26,7 @@ public class TextEngine {
         for(int i = 0; i < chars.length; i++) {
             stringBuilder.append( (TextEngine.controlWithUpperCharacter((chars[i]), key)) );
         }
-        System.out.println("EncodeString: " + sourceString.toString());
+        //System.out.println("EncodeString: \n" + sourceString);
         return stringBuilder.toString();
     }
 
@@ -35,13 +34,55 @@ public class TextEngine {
         return encodeString(sourceString, -1*key);
     }
 
-    public static String decodeAuto(String sourceString) {
-        String destinationString = null;
-        return destinationString;
+    public static String decodeStringAuto(String sourceString) {
+        boolean testDots; // '.'
+        boolean testCommas; // ','
+        //boolean level3 = false;
+        String dest = null;
+        for(int i = 0; i < alphabet.length; i++) {
+            dest = encodeString(sourceString, i);
+            testDots = checkPoint(dest);
+            testCommas = checkComma(dest);
+            System.out.println("========== Status " + i + " 41: testDots " + testDots + ", testCommas " + testCommas + " ==========");
+            System.out.println(dest);
+            if(testDots && testCommas) {
+                return dest;
+            }
+        }
+        return null;
+    }
+
+    private static boolean checkPoint(String string) {
+        char [] check = string.toCharArray();
+        boolean statusSpace = false;
+        boolean statusLowerOrDigits = false;
+        for(int i = 1; i < check.length-1; i++) {
+            if (check[i] == '.') {
+                statusSpace = (check[i + 1] == ' ' || check[i] + 1 == '\n');
+                if (Character.isLowerCase(check[i - 1]) || Character.isDigit(check[i - 1])) {
+                    statusLowerOrDigits = true;
+                } else statusLowerOrDigits = false;
+            }
+        }
+        return statusSpace;
+    }
+
+    private static boolean checkComma(String string) {
+        char [] check = string.toCharArray();
+        boolean statusSpace = false;
+        boolean statusLetterOrDigits = false;
+        for(int i = 1; i < check.length-1; i++) {
+            if (',' == check[i]) {
+                statusSpace = check[i + 1] == ' ';
+//                if (Character.isLetter(check[i - 1]) || Character.isDigit(check[i - 1])) {
+//                    statusLetterOrDigits = true;
+//                } else statusLetterOrDigits = false;
+            }
+        }
+        return statusSpace;
     }
 
     private static Character controlWithUpperCharacter(char symbol, int shift) {
-        boolean upperSymbol = false;
         if(Character.isLetter(symbol)) {
             if(Character.isUpperCase(symbol)) {
                 symbol = Character.toUpperCase(returnCharacterWithShift(Character.toLowerCase(symbol), shift));

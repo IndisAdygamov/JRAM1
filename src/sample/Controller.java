@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.*;
+import java.nio.file.Files;
 
 public class Controller {
     @FXML
@@ -48,6 +49,7 @@ public class Controller {
     private ProgressBar progress;
     private String leftString;
     private Stage stage;
+    private File fileSource;
 
     public Controller() {
     }
@@ -74,11 +76,15 @@ public class Controller {
             ButtonType button = alert.showAndWait().get();
             if (button == ButtonType.OK) {
                 System.out.println("========== System log: OK ==========");
-                actionFileSaveAs();
-                System.out.println("You successfully exiting");
-                System.out.println("Выход через File->Exit успешен");
-                stage = (Stage) anchorPaneMain.getScene().getWindow();
-                stage.close();
+                if(actionFileSaveAs()==0) {
+                    System.out.println("You successfully exiting");
+                    System.out.println("Выход через File->Exit успешен");
+                    stage = (Stage) anchorPaneMain.getScene().getWindow();
+                    stage.close();
+                }
+                else if(actionFileSaveAs()==1) {
+                    System.out.println("File not saved, canceled.");
+                }
             }
             else if(button == ButtonType.CANCEL) {
                 System.out.println("========== System log: Cancel ==========");
@@ -114,6 +120,7 @@ public class Controller {
         File file = fileChooser.showOpenDialog(stage);
 
         if(file != null) {
+            fileSource = file;
             StringBuilder stringBuilder = new StringBuilder();
             try (FileReader fileReader = new FileReader(file)) {
                 int character;
@@ -136,12 +143,16 @@ public class Controller {
     }
 
     @FXML
-    private void actionFileSaveAs() {
+    private int actionFileSaveAs() {
         System.out.println("========== System log: Menu->File->Save As ==========");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Save file as");
         File file = fileChooser.showSaveDialog(stage);
-        System.out.println(file);
+
+        System.out.println("file for save: " + file);
+        if(file == null) {
+            return 1;
+        }
 
         try(FileWriter fileWriter = new FileWriter(file)) {
             String string = rightText.getText();
@@ -151,11 +162,33 @@ public class Controller {
             e.printStackTrace();
         }
         showStatus(file + " Saved.");
+        return 0;
     }
 
     @FXML
     private void actionFileSave() {
         System.out.println("========== System log: Menu->File->Save ==========");
+        if(Files.exists(fileSource.toPath())) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Save");
+            alert.setHeaderText("File " + fileSource + " is exist!");
+            alert.setContentText("Do you want to overwrite?");
+            ButtonType button = alert.showAndWait().get();
+            if (button == ButtonType.OK) {
+                System.out.println("========== System log: OK ==========");
+                try(FileWriter fileWriter = new FileWriter(fileSource)) {
+                    String string = rightText.getText();
+                    fileWriter.write(string.toCharArray());
+                    System.out.println("========== System log: Save file " + fileSource + " done. ==========");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                showStatus(fileSource + " Saved.");
+            }
+            else if(button == ButtonType.CANCEL) {
+                System.out.println("========== System log: Cancel ==========");
+            }
+        }
     }
 
     @FXML
@@ -173,6 +206,14 @@ public class Controller {
         boolean validKey = false;
         int number = 0;
         String key = keyText.getText();
+        if(leftText.getText().equals("")) {
+            System.out.println("========== System log: Missing text to process ==========");
+            return;
+        }
+        else {
+            System.out.println("========== System log: Text to process found ==========");
+        }
+
         if(!key.equals("")) {
             try{
                 number = Integer.parseInt(key);
@@ -222,6 +263,17 @@ public class Controller {
     @FXML
     private void actionEditDecryptAuto() {
         System.out.println("========== System log: Menu->Edit->DecryptAuto ==========");
+        String result = TextEngine.decodeStringAuto(leftText.getText());
+
+        if(result == null) {
+            System.out.println("========== System log: AutoDecrypt fault");
+            showStatus("Fault");
+        }
+        else {
+            rightText.setText(result);
+            showStatus("Decrypted");
+        }
+        //System.out.println(result);
     }
 
     @FXML
