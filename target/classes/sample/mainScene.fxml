@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -59,10 +58,9 @@
             </HBox>
         </children>
     </AnchorPane>
-    <Label fx:id="status" layoutX="191.0" layoutY="376.0" nodeOrientation="LEFT_TO_RIGHT" text="Status" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0">
+    <Label fx:id="status" layoutX="191.0" layoutY="376.0" nodeOrientation="LEFT_TO_RIGHT" text="Status" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0">
         <font>
           <Font size="14.0" />
         </font>
     </Label>
-    <ProgressBar fx:id="progress" layoutX="233.0" layoutY="376.0" prefHeight="20.0" progress="0.0" AnchorPane.bottomAnchor="4.0" AnchorPane.rightAnchor="4.0" />
 </AnchorPane>

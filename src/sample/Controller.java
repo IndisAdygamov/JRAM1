@@ -9,6 +9,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Optional;
 
 public class Controller {
     @FXML
@@ -45,49 +46,61 @@ public class Controller {
     private Label status;
     @FXML
     private TextArea keyText;
-    @FXML
-    private ProgressBar progress;
     private String leftString;
     private Stage stage;
     private File fileSource;
-
+    private File fileDestination;
     public Controller() {
     }
 
     public void initialize() {
         // TODO
         System.out.println("========== System log: Initialization ==========");
-        String alphabet = "";
+        StringBuilder alphabet = new StringBuilder();
         for(Character ch : TextEngine.getAlphabet()) {
-            alphabet = alphabet +" " + ch.toString();
+            alphabet.append(" ").append(ch.toString());
         }
-        alphabetText.setText(alphabet);
+        alphabetText.setText(alphabet.toString());
     }
 
     @FXML
     private void actionFileExit() {
-        System.out.println("========== System log: Menu->File->Exit =========="+ rightText.getText()+"1");
+        System.out.println("========== System log: Menu->File->Exit ==========");
+
+        if(fileDestination!=null) {
+            if(status.getText().equals("status: " + fileDestination.toString() + " Saved.")) {
+                stage = (Stage) anchorPaneMain.getScene().getWindow();
+                stage.close();
+                return;
+            }
+        }
 
         if(!rightText.getText().equals("")) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            ButtonType yes = new ButtonType("YES", ButtonBar.ButtonData.OK_DONE);
+            ButtonType no = new ButtonType("NO", ButtonBar.ButtonData.CANCEL_CLOSE);
+            Alert alert = new Alert(Alert.AlertType.WARNING, "", no, yes);
             alert.setTitle("Exit");
             alert.setHeaderText("You will exit the program.");
             alert.setContentText("Do you want to save before exiting?: ");
-            ButtonType button = alert.showAndWait().get();
-            if (button == ButtonType.OK) {
+            alert.showingProperty();
+            Optional<ButtonType> button = alert.showAndWait();
+            if (button.orElse(yes) == yes) {
                 System.out.println("========== System log: OK ==========");
-                if(actionFileSaveAs()==0) {
+                int actionFileSaveAsResult = actionFileSaveAs();
+                if(actionFileSaveAsResult==0) {
                     System.out.println("You successfully exiting");
                     System.out.println("Выход через File->Exit успешен");
                     stage = (Stage) anchorPaneMain.getScene().getWindow();
                     stage.close();
                 }
-                else if(actionFileSaveAs()==1) {
+                else if(actionFileSaveAsResult==1) {
                     System.out.println("File not saved, canceled.");
                 }
             }
-            else if(button == ButtonType.CANCEL) {
+            else if(button.orElse(no) == no) {
                 System.out.println("========== System log: Cancel ==========");
+                stage = (Stage) anchorPaneMain.getScene().getWindow();
+                stage.close();
             }
         }
         else {
@@ -104,16 +117,17 @@ public class Controller {
         Alert alertAbout = new Alert(Alert.AlertType.INFORMATION);
         alertAbout.setTitle("About");
         alertAbout.setHeaderText("Разработано в НИИ JavaRush");
-        alertAbout.setContentText("Программа для шифрования/дешифрования текстовых файлов алгоритмом Цезаря\n" +
-                                    "версия 0.1\n" +
-                                    "лицензия GNU GPL3\n" +
-                                    "Автор: Indis Adygamov, email: i.adygamov@gmail.com");
+        alertAbout.setContentText("""
+                Программа для шифрования/дешифрования текстовых файлов алгоритмом Цезаря
+                версия 0.1
+                лицензия GNU GPL3
+                Автор: Indis Adygamov, email: i.adygamov@gmail.com""");
         alertAbout.setGraphic(new ImageView(new Image("icon48.png")));
         alertAbout.showAndWait();
     }
 
     @FXML
-    private void actionFileOpen() throws InterruptedException {
+    private void actionFileOpen() {
         System.out.println("========== System log: Main->File->Open ==========");
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open file");
@@ -161,6 +175,7 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        fileDestination = file;
         showStatus(file + " Saved.");
         return 0;
     }
@@ -173,8 +188,8 @@ public class Controller {
             alert.setTitle("Save");
             alert.setHeaderText("File " + fileSource + " is exist!");
             alert.setContentText("Do you want to overwrite?");
-            ButtonType button = alert.showAndWait().get();
-            if (button == ButtonType.OK) {
+            Optional<ButtonType> button = alert.showAndWait();
+            if (button.orElse(ButtonType.OK) == ButtonType.OK) {
                 System.out.println("========== System log: OK ==========");
                 try(FileWriter fileWriter = new FileWriter(fileSource)) {
                     String string = rightText.getText();
@@ -185,7 +200,7 @@ public class Controller {
                 }
                 showStatus(fileSource + " Saved.");
             }
-            else if(button == ButtonType.CANCEL) {
+            else if(button.orElse(ButtonType.CANCEL) == ButtonType.CANCEL) {
                 System.out.println("========== System log: Cancel ==========");
             }
         }
@@ -203,8 +218,8 @@ public class Controller {
     @FXML
     private void actionEditEncrypt() {
         System.out.println("========== System log: Menu->Edit->Encrypt ==========");
-        boolean validKey = false;
-        int number = 0;
+        int number;
+
         String key = keyText.getText();
         if(leftText.getText().equals("")) {
             System.out.println("========== System log: Missing text to process ==========");
@@ -217,16 +232,13 @@ public class Controller {
         if(!key.equals("")) {
             try{
                 number = Integer.parseInt(key);
-                validKey = true;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                System.out.println("========== System log: Encrypt failed, key is not valid ==========");
-            }
-            if(validKey) {
-                String rightString = TextEngine.encodeString(leftString, Integer.parseInt(key));
+                String rightString = TextEngine.encodeString(leftString, number);
                 System.out.println(rightString);
                 rightText.setText(rightString);
                 showStatus("Encrypted");
+            } catch (NumberFormatException e) {
+                System.out.println("========== System log: Encrypt failed, key is not valid ==========");
+                showStatus("Not Encrypted, key is not valid");
             }
         }
         else {
@@ -237,22 +249,26 @@ public class Controller {
     @FXML
     private void actionEditDecrypt() {
         System.out.println("========== System log: Menu->Edit->Decrypt ==========");
-        boolean validKey = false;
         String key = keyText.getText();
-        int number = 0;
+        int number;
+        if(leftText.getText().equals("")) {
+            System.out.println("========== System log: Missing text to process ==========");
+            return;
+        }
+        else {
+            System.out.println("========== System log: Text to process found ==========");
+        }
         if(!key.equals(""))  {
             try{
                 number = Integer.parseInt(key);
-                validKey = true;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                System.out.println("========== System log: Decrypt failed, key is not valid ==========");
-            }
-            if(validKey) {
                 String rightString = TextEngine.decodeString(leftString, number);
                 System.out.println(rightString);
                 rightText.setText(rightString);
                 showStatus("Decrypted");
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("========== System log: Decrypt failed, key is not valid ==========");
+                showStatus("Not Decrypted, key is not valid");
             }
         }
         else {
@@ -266,14 +282,13 @@ public class Controller {
         String result = TextEngine.decodeStringAuto(leftText.getText());
 
         if(result == null) {
-            System.out.println("========== System log: AutoDecrypt fault");
+            System.out.println("========== System log: AutoDecrypt fault ==========");
             showStatus("Fault");
         }
         else {
             rightText.setText(result);
             showStatus("Decrypted");
         }
-        //System.out.println(result);
     }
 
     @FXML

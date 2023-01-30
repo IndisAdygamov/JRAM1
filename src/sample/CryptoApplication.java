@@ -9,16 +9,18 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+import java.util.Optional;
+
 public class CryptoApplication extends Application {
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("mainScene.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainScene.fxml")));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-
             stage.getIcons().add(new Image("icon_logo_cesar.png"));
             stage.setTitle("СryptoCesar");
             stage.show();
@@ -38,8 +40,8 @@ public class CryptoApplication extends Application {
         alert.setTitle("Exit");
         alert.setHeaderText("You will exit the program.");
         alert.setContentText("Do you want to exit?");
-        ButtonType button = alert.showAndWait().get();
-        if(button == ButtonType.OK) {
+        Optional<ButtonType> button = alert.showAndWait();
+        if(button.orElse(ButtonType.OK) == ButtonType.OK) {
             System.out.println("You successfully exiting");
             System.out.println("Выход через крестик успешен");
             stage.close();
@@ -51,7 +53,6 @@ public class CryptoApplication extends Application {
     }
 
     public static void main(String[] args) {
-
         launch(args);
     }
 }

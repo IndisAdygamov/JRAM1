@@ -7,8 +7,13 @@
     <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CryptoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CryptoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/TextEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/TextEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/text.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/mainScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5471264",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5471264&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/sample" />
@@ -93,6 +98,17 @@
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically." />

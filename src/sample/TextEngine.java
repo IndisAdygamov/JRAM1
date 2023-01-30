@@ -23,8 +23,8 @@ public class TextEngine {
         }
         char[] chars = sourceString.toCharArray();
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < chars.length; i++) {
-            stringBuilder.append( (TextEngine.controlWithUpperCharacter((chars[i]), key)) );
+        for (char aChar : chars) {
+            stringBuilder.append((TextEngine.controlWithUpperCharacter(aChar, key)));
         }
         //System.out.println("EncodeString: \n" + sourceString);
         return stringBuilder.toString();
@@ -37,15 +37,15 @@ public class TextEngine {
     public static String decodeStringAuto(String sourceString) {
         boolean testDots; // '.'
         boolean testCommas; // ','
-        //boolean level3 = false;
-        String dest = null;
+        String dest;
         for(int i = 0; i < alphabet.length; i++) {
             dest = encodeString(sourceString, i);
             testDots = checkPoint(dest);
             testCommas = checkComma(dest);
             System.out.println("========== Status " + i + " 41: testDots " + testDots + ", testCommas " + testCommas + " ==========");
-            System.out.println(dest);
+            //System.out.println(dest);
             if(testDots && testCommas) {
+                System.out.println("========== System log: Key is " + (alphabet.length - i) + " ==========");
                 return dest;
             }
         }
@@ -58,13 +58,15 @@ public class TextEngine {
         boolean statusLowerOrDigits = false;
         for(int i = 1; i < check.length-1; i++) {
             if (check[i] == '.') {
-                statusSpace = (check[i + 1] == ' ' || check[i] + 1 == '\n');
-                if (Character.isLowerCase(check[i - 1]) || Character.isDigit(check[i - 1])) {
-                    statusLowerOrDigits = true;
-                } else statusLowerOrDigits = false;
+                statusSpace = (check[i + 1] == ' ' ||
+                                check[i + 1] == '\n' ||
+                                check[i + 1] == '.'||
+                                check[i + 1] == '»'||
+                                check[i + 1] == '—');
+                statusLowerOrDigits = Character.isLowerCase(check[i - 1]) || Character.isDigit(check[i - 1]);
             }
         }
-        return statusSpace;
+        return statusSpace&&statusLowerOrDigits;
     }
 
     private static boolean checkComma(String string) {
@@ -74,12 +76,10 @@ public class TextEngine {
         for(int i = 1; i < check.length-1; i++) {
             if (',' == check[i]) {
                 statusSpace = check[i + 1] == ' ';
-//                if (Character.isLetter(check[i - 1]) || Character.isDigit(check[i - 1])) {
-//                    statusLetterOrDigits = true;
-//                } else statusLetterOrDigits = false;
+                statusLetterOrDigits = Character.isLetter(check[i - 1]) || Character.isDigit(check[i - 1]);
             }
         }
-        return statusSpace;
+        return statusSpace && statusLetterOrDigits ;
     }
 
     private static Character controlWithUpperCharacter(char symbol, int shift) {
