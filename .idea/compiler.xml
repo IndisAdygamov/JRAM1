@@ -9,8 +9,5 @@
         <module name="Module1Crypto" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Module1Crypto" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>

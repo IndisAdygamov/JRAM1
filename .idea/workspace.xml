@@ -4,16 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically.">
+    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #4&#10;&#10;Fixed:&#10;- menu-&gt;File-&gt;Exit, method actionFileExit. (When field Before not empty, called Save As.)&#10;- menu-&gt;Edit-&gt;Encrypt, method actionEditEncrypt,&#10;- menu-&gt;Edit-&gt;Decrypt, method actionEditDecrypt,&#10;&#10;Released:&#10;- menu-&gt;Edit-&gt;Decrypt Auto, method actionEditDecryptAuto.(Bruteforce, ver.1.0).&#10;&#10;Deleted:&#10;- ProgressBar, No idea why or how.&#10;&#10;In the future: &#10;- Moving errors to a separate Enum.&#10;- Implement manual decryption(menu-&gt;Edit-&gt;Decrypt Manually) by a changed the key on realtime.">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_17_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/CryptoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/CryptoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/TextEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/TextEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/mainScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module1Crypto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Module1Crypto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icon48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/icon_logo_cesar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,16 +60,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.5471264&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.3755837",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/sample" />
@@ -60,7 +79,7 @@
   </component>
   <component name="RunManager">
     <configuration name="CryptoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="liberica-19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-17.0.6" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="sample.CryptoApplication" />
       <module name="Module1Crypto" />
@@ -117,5 +136,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Module1Crypto$CryptoApplication.ic" NAME="CryptoApplication Coverage Results" MODIFIED="1683062218169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>sample.*</FILTER>
+    </SUITE>
   </component>
 </project>
