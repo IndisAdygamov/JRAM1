@@ -4,34 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #4&#10;&#10;Fixed:&#10;- menu-&gt;File-&gt;Exit, method actionFileExit. (When field Before not empty, called Save As.)&#10;- menu-&gt;Edit-&gt;Encrypt, method actionEditEncrypt,&#10;- menu-&gt;Edit-&gt;Decrypt, method actionEditDecrypt,&#10;&#10;Released:&#10;- menu-&gt;Edit-&gt;Decrypt Auto, method actionEditDecryptAuto.(Bruteforce, ver.1.0).&#10;&#10;Deleted:&#10;- ProgressBar, No idea why or how.&#10;&#10;In the future: &#10;- Moving errors to a separate Enum.&#10;- Implement manual decryption(menu-&gt;Edit-&gt;Decrypt Manually) by a changed the key on realtime.">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven.">
+      <change afterPath="$PROJECT_DIR$/src/release/Module1Crypto-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_17_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Module1Crypto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Module1Crypto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/icon48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/icon_logo_cesar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/CryptoApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/TextEngine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/mainScene.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icon_logo_cesar.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon_logo_cesar.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/CryptoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/CryptoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/TextEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/TextEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mainScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,30 +50,38 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "SDKs",
+    "last_directory_selection": "/home/indis/git/Module1Crypto/src",
+    "last_opened_file_path": "/home/indis/git/Module1Crypto/src/sample1",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3755837",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sample1" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/sample" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/sample" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/sample" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+      <recent name="$PROJECT_DIR$/src/sample" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="sample" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="CryptoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="liberica-17.0.6" />
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="sample.CryptoApplication" />
       <module name="Module1Crypto" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675015289922</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven.">
+      <created>1683065483314</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683065483314</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,7 +131,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically." />
+    <MESSAGE value="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

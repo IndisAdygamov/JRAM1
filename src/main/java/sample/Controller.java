@@ -117,11 +117,11 @@ public class Controller {
         Alert alertAbout = new Alert(Alert.AlertType.INFORMATION);
         alertAbout.setTitle("About");
         alertAbout.setHeaderText("Разработано в НИИ JavaRush");
-        alertAbout.setContentText("""
-                Программа для шифрования/дешифрования текстовых файлов алгоритмом Цезаря
-                версия 0.1
-                лицензия GNU GPL3
-                Автор: Indis Adygamov, email: i.adygamov@gmail.com""");
+        alertAbout.setContentText("\nПрограмма для шифрования/дешифрования текстовых файлов алгоритмом Цезаря" +
+                "\nверсия 1.0" +
+                "\nлицензия GNU GPL3" +
+                "\nАвтор: Indis Adygamov, " +
+                "email: i.adygamov@gmail.com");
         alertAbout.setGraphic(new ImageView(new Image("icon48.png")));
         alertAbout.showAndWait();
     }
