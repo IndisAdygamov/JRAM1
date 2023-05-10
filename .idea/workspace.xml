@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven.">
-      <change afterPath="$PROJECT_DIR$/src/release/Module1Crypto-1.0-SNAPSHOT.jar" afterDir="false" />
+    <list default="true" id="cbb57925-8192-41ac-8433-1e792905d728" name="Changes" comment="Commit #6&#10;&#10;Release version 1.0.&#10;The minimum version of Java is 17.&#10;Edited pom.xml, added resources.&#10;Added executable jar file.&#10;Excluded folder  /target.">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module1Crypto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Module1Crypto.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icon_logo_cesar.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icon_logo_cesar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/CryptoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/CryptoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/TextEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/TextEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/mainScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mainScene.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +42,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
     "last_directory_selection": "/home/indis/git/Module1Crypto/src",
-    "last_opened_file_path": "/home/indis/git/Module1Crypto/src/sample1",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "/home/indis/git/Module1Crypto",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.3755837",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -100,6 +99,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674729452665</updated>
+      <workItem from="1683745806562" duration="3778000" />
     </task>
     <task id="LOCAL-00001" summary="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically.">
       <created>1675015289922</created>
@@ -115,8 +115,18 @@
       <option name="project" value="LOCAL" />
       <updated>1683065483314</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Commit #6&#10;&#10;Release version 1.0.&#10;The minimum version of Java is 17.&#10;Edited pom.xml, added resources.&#10;Added executable jar file.&#10;Excluded folder  /target.">
+      <created>1683147467039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1683147467039</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -132,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit #2.&#10;Added key entry for encryption/decryption.&#10;Remains unimplemented:&#10;- Function File-&gt;Save. (optional)&#10;- Function Edit-&gt;Decrypt manually. (optional)&#10;- Function Edit-&gt;Decrypt automatically." />
     <MESSAGE value="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven." />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit #5&#10;&#10;Saving before putting things in order in the directory, modeled after Maven." />
+    <MESSAGE value="Commit #6&#10;&#10;Release version 1.0.&#10;The minimum version of Java is 17.&#10;Edited pom.xml, added resources.&#10;Added executable jar file.&#10;Excluded folder  /target." />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit #6&#10;&#10;Release version 1.0.&#10;The minimum version of Java is 17.&#10;Edited pom.xml, added resources.&#10;Added executable jar file.&#10;Excluded folder  /target." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
