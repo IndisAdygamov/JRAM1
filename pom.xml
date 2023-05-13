@@ -66,7 +66,7 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <outputDirectory>${project.build.directory}/dependency</outputDirectory>
+                    <outputDirectory>target/dependency</outputDirectory>
 <!--                    <includeScope>compiler</includeScope>-->
                 </configuration>
                 <executions>
@@ -78,6 +78,11 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -88,7 +93,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>${project.build.directory}/dependency</directory>
+                <directory>target/dependency</directory>
                 <targetPath>lib/</targetPath>
             </resource>
         </resources>
